@@ -264,7 +264,7 @@ void Adafruit_INA219::setCalibration_32V_2A() {
 
   // Set Config register to take into account the settings above
   uint16_t config = INA219_CONFIG_BVOLTAGERANGE_32V |
-                    INA219_CONFIG_GAIN_8_320MV | INA219_CONFIG_BADCRES_12BIT |
+                    INA219_CONFIG_GAIN_8_320MV | INA219_CONFIG_BADCRES_12BIT_128S_69MS |
                     INA219_CONFIG_SADCRES_12BIT_128S_69MS |
                     INA219_CONFIG_MODE_SANDBVOLT_CONTINUOUS;
   Adafruit_BusIO_Register config_reg =
@@ -375,8 +375,8 @@ void Adafruit_INA219::setCalibration_32V_1A() {
 
   // Set Config register to take into account the settings above
   uint16_t config = INA219_CONFIG_BVOLTAGERANGE_32V |
-                    INA219_CONFIG_GAIN_8_320MV | INA219_CONFIG_BADCRES_12BIT_128S_69MS |
-                    INA219_CONFIG_SADCRES_12BIT_1S_532US |
+                    INA219_CONFIG_GAIN_8_320MV | INA219_CONFIG_BADCRES_12BIT_128S_69MS_128S_69MS |
+                    INA219_CONFIG_SADCRES_12BIT_128S_69MS |
                     INA219_CONFIG_MODE_SANDBVOLT_CONTINUOUS;
   Adafruit_BusIO_Register config_reg =
       Adafruit_BusIO_Register(i2c_dev, INA219_REG_CONFIG, 2, MSBFIRST);
@@ -466,8 +466,8 @@ void Adafruit_INA219::setCalibration_16V_400mA() {
   calibration_reg.write(ina219_calValue, 2);
   // Set Config register to take into account the settings above
   uint16_t config = INA219_CONFIG_BVOLTAGERANGE_16V |
-                    INA219_CONFIG_GAIN_1_40MV | INA219_CONFIG_BADCRES_12BIT |
-                    INA219_CONFIG_SADCRES_12BIT_1S_532US |
+                    INA219_CONFIG_GAIN_1_40MV | INA219_CONFIG_BADCRES_12BIT_128S_69MS |
+                    NA219_CONFIG_SADCRES_12BIT_128S_69MS |
                     INA219_CONFIG_MODE_SANDBVOLT_CONTINUOUS;
 
   Adafruit_BusIO_Register config_reg =
